@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+// import { Form, Col, Button, InputGroup } from 'react-bootstrap';
+import ReactDatetimePicker from "./ReactDatetimePicker";
 
 function App() {
+  const [currentValue, setCurrentValue] = useState();
+  const onChange = (value) => {
+    setCurrentValue(value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ReactDatetimePicker label="react datetime picker" now={true} value={currentValue} onChange={value => onChange(value)} />
     </div>
   );
 }

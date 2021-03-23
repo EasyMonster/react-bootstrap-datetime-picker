@@ -1,0 +1,36 @@
+.datetimePicker {
+
+}
+
+.datetimePickerWrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.datetimePickerInput {
+    
+}
+
+.datetimePickerNowButton {
+    display: inline-block;
+    margin-left: -1px;
+    border: 1px solid #6c757d;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    position: relative;
+    z-index: 2;
+    color: #6c757d;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.datetimePickerNowButton:hover {
+    color: white;
+    background-color: #6c757d;
+}
