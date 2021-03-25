@@ -4,15 +4,6 @@ import { Form, Button, } from 'react-bootstrap';
 import moment from 'moment';
 
 const parseDigits = string => (string.match(/\d+/g) || []).join('');
-// const validChars = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'P', 'M'];
-// const parseDigits = (string) => {
-//     return string
-//     .split('')
-//     .map((char) => {
-//         return validChars.includes(char) ? char : '';
-//     })
-//     .join('');
-// }
 
 const formatDate = string => {
     const digits = parseDigits(string);
@@ -29,15 +20,15 @@ const formatDate = string => {
                 else if (index === 10) {
                     return `${r}:${v}`;
                 }
-                // else if (index === 12) {
-                //     return `${r} ${v}`;
-                // }
+                else if (index === 12) {
+                    return `${r}:${v}`;
+                }
                 else {
                     return `${r}${v}`;
                 }
             }, ''
         )
-        .substr(0, 16);
+        .substr(0, 19);
     return result;
 };
 
@@ -48,15 +39,15 @@ const addMask = string => {
     const years = digits.slice(4, 8).padEnd(4, 'y');
     const hours = digits.slice(8, 10).padEnd(2, 'h');
     const minutes = digits.slice(10, 12).padEnd(2, 'm');
-    // const noons = digits.slice(12, 14).padEnd(2, 'n');
-    return `${months}/${days}/${years} ${hours}:${minutes}`;
+    const seconds = digits.slice(12, 14).padEnd(2, 's');
+    return `${months}/${days}/${years} ${hours}:${minutes}:${seconds}`;
 };
 
-const DateFormatter = ({ label = "", now = false, value, onChange, placeholder = "dd/MM/yyyy hh:mm", required = false }) => {
+const DateFormatter = ({ label = "", now = false, value, onChange, placeholder = "MM/dd/yyyy hh:mm:ss", required = false }) => {
 
     const renderInput = ({ value, onChange }) => {
         const setTimeNow = () => {
-            onChange({ target: { value: moment().format('MM/DD/YYYY HH:mm') } });
+            onChange({ target: { value: moment().format('MM/DD/YYYY HH:mm:ss') } });
         }
 
         return (
